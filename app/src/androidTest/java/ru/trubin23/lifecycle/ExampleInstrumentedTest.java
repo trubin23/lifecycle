@@ -1,4 +1,4 @@
-package ru.trubin23.tasksmvpfragmentless;
+package ru.trubin23.lifecycle;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

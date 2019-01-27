@@ -1,39 +1,23 @@
-package ru.trubin23.tasksmvpfragmentless;
+package ru.trubin23.lifecycle;
 
-import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class FirstActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = FirstActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         logCurrentState();
 
-        setContentView(R.layout.activity_main);
-
-        MyServer myServer = new MyServer();
-        getLifecycle().addObserver(myServer);
+        setContentView(R.layout.activity_first);
 
         Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logCurrentState();
-            }
-        });
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        logCurrentState();
+        button.setOnClickListener(v -> logCurrentState());
     }
 
     @Override
@@ -68,9 +52,5 @@ public class MainActivity extends AppCompatActivity {
 
     void logCurrentState() {
         Log.d(TAG, getLifecycle().getCurrentState().name());
-
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-            Log.d(TAG, "isAtLeast State.STARTED: " + getLifecycle().getCurrentState().name());
-        }
     }
 }

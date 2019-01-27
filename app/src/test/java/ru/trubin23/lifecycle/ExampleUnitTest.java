@@ -1,4 +1,4 @@
-package ru.trubin23.tasksmvpfragmentless;
+package ru.trubin23.lifecycle;
 
 import org.junit.Test;
 
