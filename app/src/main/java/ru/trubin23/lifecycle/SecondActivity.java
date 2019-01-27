@@ -7,19 +7,15 @@ import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private TextView mTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        mTextView = findViewById(R.id.text_view);
+        TextView textView = findViewById(R.id.text_view);
 
         LiveData<String> liveData = DataController.getInstance().getLiveData();
 
-        liveData.observe(this, string -> {
-            mTextView.setText(string);
-        });
+        liveData.observe(this, textView::setText);
     }
 }
