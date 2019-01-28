@@ -6,7 +6,6 @@ import android.arch.lifecycle.Transformations;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -17,7 +16,10 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        LiveData<String> liveData = DataController.getInstance().getLiveData();
+        //LiveData<String> liveData = DataController.getInstance().getLiveData();
+
+        getLiveDataExtend().observe(this,
+                integer -> Log.d(LiveDataExtend.TAG, String.valueOf(integer)));
     }
 
     private void liveDataIntLogs(LiveData<String> liveData) {
@@ -45,5 +47,9 @@ public class SecondActivity extends AppCompatActivity {
 
         liveDataUser.observe(this, user ->
                 Log.d(TAG, "liveDataUser user: " + user.toString()));
+    }
+
+    private LiveDataExtend getLiveDataExtend() {
+        return LiveDataExtend.getInstance();
     }
 }
