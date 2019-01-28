@@ -11,6 +11,9 @@ class DataController {
 
     private MutableLiveData<String> mLiveData = new MutableLiveData<>();
 
+    private DataController() {
+    }
+
     static DataController getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new DataController();
@@ -37,11 +40,11 @@ class DataController {
         return INSTANCE;
     }
 
-    LiveData<String> getLiveData(){
+    LiveData<String> getLiveData() {
         return mLiveData;
     }
 
-    private MutableLiveData<String> getMutableLiveData(){
+    private MutableLiveData<String> getMutableLiveData() {
         return mLiveData;
     }
 }
