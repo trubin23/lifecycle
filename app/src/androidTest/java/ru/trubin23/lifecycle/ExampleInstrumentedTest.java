@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("ru.trubin23.tasksmvpfragmentless", appContext.getPackageName());
+        assertEquals("ru.trubin23.lifecycle", appContext.getPackageName());
     }
 }
