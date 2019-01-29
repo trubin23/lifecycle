@@ -1,5 +1,6 @@
 package ru.trubin23.lifecycle.third_activity;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 public class MyThread extends Thread {
@@ -26,5 +27,9 @@ public class MyThread extends Thread {
                 e.printStackTrace();
             }
         }
+    }
+
+    LiveData<String> getLiveData() {
+        return mMutableLiveData;
     }
 }

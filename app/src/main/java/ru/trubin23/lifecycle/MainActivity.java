@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import ru.trubin23.lifecycle.first_activity.FirstActivity;
 import ru.trubin23.lifecycle.second_activity.SecondActivity;
+import ru.trubin23.lifecycle.third_activity.ThirdActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
         Button buttonSecondActivity = findViewById(R.id.button_second_activity);
         buttonSecondActivity.setOnClickListener(v -> {
             Intent intent = new Intent(this, SecondActivity.class);
+            startActivity(intent);
+        });
+
+        Button buttonThirdActivity = findViewById(R.id.button_third_activity);
+        buttonThirdActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ThirdActivity.class);
             startActivity(intent);
         });
     }
