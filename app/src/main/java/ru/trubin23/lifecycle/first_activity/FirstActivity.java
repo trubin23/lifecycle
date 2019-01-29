@@ -1,9 +1,11 @@
-package ru.trubin23.lifecycle;
+package ru.trubin23.lifecycle.first_activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
+
+import ru.trubin23.lifecycle.R;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -15,6 +17,9 @@ public class FirstActivity extends AppCompatActivity {
         logCurrentState();
 
         setContentView(R.layout.activity_first);
+
+        MyServer myServer = new MyServer();
+        getLifecycle().addObserver(myServer);
 
         Button button = findViewById(R.id.button);
         button.setOnClickListener(v -> logCurrentState());

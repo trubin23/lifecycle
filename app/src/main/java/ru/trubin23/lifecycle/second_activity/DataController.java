@@ -1,4 +1,4 @@
-package ru.trubin23.lifecycle;
+package ru.trubin23.lifecycle.second_activity;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;

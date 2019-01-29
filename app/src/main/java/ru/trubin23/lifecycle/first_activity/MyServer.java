@@ -1,4 +1,4 @@
-package ru.trubin23.lifecycle;
+package ru.trubin23.lifecycle.first_activity;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;

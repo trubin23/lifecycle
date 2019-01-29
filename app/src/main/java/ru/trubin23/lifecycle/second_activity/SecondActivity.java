@@ -1,4 +1,4 @@
-package ru.trubin23.lifecycle;
+package ru.trubin23.lifecycle.second_activity;
 
 import android.arch.core.util.Function;
 import android.arch.lifecycle.LiveData;
@@ -6,6 +6,8 @@ import android.arch.lifecycle.Transformations;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import ru.trubin23.lifecycle.R;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -16,13 +18,13 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        //LiveData<String> liveData = DataController.getInstance().getLiveData();
-
         getLiveDataExtend().observe(this,
                 integer -> Log.d(LiveDataExtend.TAG, String.valueOf(integer)));
     }
 
-    private void liveDataIntLogs(LiveData<String> liveData) {
+    private void liveDataIntLogs() {
+        LiveData<String> liveData = DataController.getInstance().getLiveData();
+
         LiveData<Integer> liveDataInt = Transformations.map(liveData, new Function<String, Integer>() {
             @Override
             public Integer apply(String input) {
@@ -33,7 +35,9 @@ public class SecondActivity extends AppCompatActivity {
                 Log.d(TAG, "liveDataInt negative value: " + String.valueOf(-integer)));
     }
 
-    private void liveDataUserLogs(LiveData<String> liveData) {
+    private void liveDataUserLogs() {
+        LiveData<String> liveData = DataController.getInstance().getLiveData();
+
         LiveData<Integer> liveDataInt = Transformations.map(liveData, Integer::parseInt);
 
         LiveData<User> liveDataUser = Transformations.switchMap(liveDataInt, new Function<Integer, LiveData<User>>() {

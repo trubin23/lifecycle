@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import ru.trubin23.lifecycle.first_activity.FirstActivity;
+import ru.trubin23.lifecycle.second_activity.SecondActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -14,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
-        MyServer myServer = new MyServer();
-        getLifecycle().addObserver(myServer);
 
         Button buttonFirstActivity = findViewById(R.id.button_first_activity);
         buttonFirstActivity.setOnClickListener(v -> {

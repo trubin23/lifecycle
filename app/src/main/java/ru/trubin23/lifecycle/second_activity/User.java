@@ -1,4 +1,4 @@
-package ru.trubin23.lifecycle;
+package ru.trubin23.lifecycle.second_activity;
 
 class User {
 
