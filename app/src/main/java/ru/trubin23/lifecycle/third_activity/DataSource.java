@@ -19,11 +19,11 @@ class DataSource {
             int threadCount = 5;
 
             String[] descriptionArray = {
-                    "Первый:",
-                    "Второй:",
-                    "Третий:",
-                    "Четвертый:",
-                    "Пятый:"
+                    "First:",
+                    "Second:",
+                    "Third:",
+                    "Fourth:",
+                    "Fifth:"
             };
 
             int sleepTime = 100;

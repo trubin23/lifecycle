@@ -16,18 +16,22 @@ public class LiveDataExtend extends LiveData<Integer> {
             INSTANCE = new LiveDataExtend();
 
             Thread thread = new Thread(() -> {
+                Integer sleepTime = 20;
                 Integer step = 0;
 
                 while (true) {
                     Log.d(TAG, "step: " + String.valueOf(step));
-                    if (mActive){
+                    if (mActive) {
                         INSTANCE.postValue(step);
                     } else {
                         Log.d(TAG, "inactive");
                     }
 
+                    Log.d(TAG, "hasActiveObservers: " + INSTANCE.hasActiveObservers());
+                    Log.d(TAG, "hasObservers: " + INSTANCE.hasObservers());
+
                     try {
-                        Thread.sleep(5);
+                        Thread.sleep(sleepTime);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -41,7 +45,7 @@ public class LiveDataExtend extends LiveData<Integer> {
 
     @Override
     protected void onActive() {
-         mActive = true;
+        mActive = true;
     }
 
     @Override
