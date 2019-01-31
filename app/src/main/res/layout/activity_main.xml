@@ -30,4 +30,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_second_activity" />
 
+    <Button
+        android:id="@+id/button_fourth_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ViewModel example"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_third_activity" />
+
 </android.support.constraint.ConstraintLayout>

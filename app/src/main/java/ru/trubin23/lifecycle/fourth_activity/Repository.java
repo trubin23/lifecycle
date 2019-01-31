@@ -1,5 +1,7 @@
 package ru.trubin23.lifecycle.fourth_activity;
 
+import android.util.Log;
+
 class Repository {
 
     private static Repository INSTANCE;
@@ -7,14 +9,16 @@ class Repository {
     private Repository() {
     }
 
-    public static Repository getInstance() {
+    static Repository getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new Repository();
         }
         return INSTANCE;
     }
 
-    public void getData(Callback callback) {
+    void getData(Callback callback) {
+        Log.d(FourthActivity.TAG, "Repository getData");
+
         Thread thread = new Thread(() -> {
             try {
                 int sleepTime = 15_000;
@@ -25,6 +29,7 @@ class Repository {
                 callback.onError();
             }
         });
+        thread.start();
     }
 
     interface Callback {

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import ru.trubin23.lifecycle.first_activity.FirstActivity;
+import ru.trubin23.lifecycle.fourth_activity.FourthActivity;
 import ru.trubin23.lifecycle.second_activity.SecondActivity;
 import ru.trubin23.lifecycle.third_activity.ThirdActivity;
 
@@ -34,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         Button buttonThirdActivity = findViewById(R.id.button_third_activity);
         buttonThirdActivity.setOnClickListener(v -> {
             Intent intent = new Intent(this, ThirdActivity.class);
+            startActivity(intent);
+        });
+
+        Button buttonFourthActivity = findViewById(R.id.button_fourth_activity);
+        buttonFourthActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(this, FourthActivity.class);
             startActivity(intent);
         });
     }
