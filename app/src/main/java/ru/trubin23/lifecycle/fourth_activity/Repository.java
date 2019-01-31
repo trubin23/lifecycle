@@ -16,14 +16,14 @@ class Repository {
         return INSTANCE;
     }
 
-    void getData(Callback callback) {
+    void getData(long value, Callback callback) {
         Log.d(FourthActivity.TAG, "Repository getData");
 
         Thread thread = new Thread(() -> {
             try {
                 int sleepTime = 15_000;
                 Thread.sleep(sleepTime);
-                callback.onSuccess("success message");
+                callback.onSuccess("success message: " + String.valueOf(value*2));
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 callback.onError();

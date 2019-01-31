@@ -9,10 +9,15 @@ public class MyViewModel extends ViewModel {
 
     private static final String TAG = MyViewModel.class.getSimpleName();
 
-    Repository mRepository;
+    private Repository mRepository;
     private MutableLiveData<String> mMutableLiveData;
+    private long mValue;
 
-    public LiveData<String> getData() {
+    MyViewModel(long value){
+        mValue = value;
+    }
+
+    LiveData<String> getData() {
         if (mMutableLiveData == null) {
             mMutableLiveData = new MutableLiveData<>();
             mRepository = Repository.getInstance();
@@ -22,7 +27,7 @@ public class MyViewModel extends ViewModel {
     }
 
     private void loadData() {
-        mRepository.getData(new Repository.Callback() {
+        mRepository.getData(mValue, new Repository.Callback() {
             @Override
             public void onSuccess(String result) {
                 mMutableLiveData.postValue(result);

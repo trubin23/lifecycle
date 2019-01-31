@@ -20,7 +20,11 @@ public class FourthActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.message);
 
-        MyViewModel viewModel = ViewModelProviders.of(this).get(MyViewModel.class);
+        int defaultValue = 10;
+        MyViewModel viewModel = ViewModelProviders
+                .of(this, new ModelFactory(defaultValue))
+                .get(MyViewModel.class);
+
         LiveData<String> liveData = viewModel.getData();
         liveData.observe(this, result -> {
             Log.d(TAG, result);
