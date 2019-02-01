@@ -6,4 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".fifth_activity.FifthActivity">
 
+    <FrameLayout
+        android:id="@+id/first_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@id/second_frame_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
+
+    <FrameLayout
+        android:id="@+id/second_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toTopOf="@id/third_frame_layout"
+        app:layout_constraintTop_toBottomOf="@id/first_frame_layout"
+        app:layout_constraintVertical_weight="1" />
+
+    <FrameLayout
+        android:id="@+id/third_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/second_frame_layout"
+        app:layout_constraintVertical_weight="1" />
+
 </android.support.constraint.ConstraintLayout>

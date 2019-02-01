@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import ru.trubin23.lifecycle.fifth_activity.FifthActivity;
 import ru.trubin23.lifecycle.first_activity.FirstActivity;
 import ru.trubin23.lifecycle.fourth_activity.FourthActivity;
 import ru.trubin23.lifecycle.second_activity.SecondActivity;
@@ -41,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         Button buttonFourthActivity = findViewById(R.id.button_fourth_activity);
         buttonFourthActivity.setOnClickListener(v -> {
             Intent intent = new Intent(this, FourthActivity.class);
+            startActivity(intent);
+        });
+
+        Button buttonFifthActivity = findViewById(R.id.button_fifth_activity);
+        buttonFifthActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(this, FifthActivity.class);
             startActivity(intent);
         });
     }
