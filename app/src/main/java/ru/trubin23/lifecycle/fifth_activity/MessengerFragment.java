@@ -10,7 +10,19 @@ import android.view.ViewGroup;
 
 public class MessengerFragment extends Fragment {
 
+    private static final String FRAGMENT_ID = "FRAGMENT_ID";
+
     SharedViewModel mSharedViewModel;
+
+    public static MessengerFragment newInstance(int id) {
+        MessengerFragment myFragment = new MessengerFragment();
+
+        Bundle args = new Bundle();
+        args.putInt(FRAGMENT_ID, id);
+        myFragment.setArguments(args);
+
+        return myFragment;
+    }
 
     @Nullable
     @Override
