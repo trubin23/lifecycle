@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import ru.trubin23.lifecycle.fifth_activity.FifthActivity;
 import ru.trubin23.lifecycle.first_activity.FirstActivity;
 import ru.trubin23.lifecycle.fourth_activity.FourthActivity;
@@ -13,42 +16,28 @@ import ru.trubin23.lifecycle.third_activity.ThirdActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
-        Button buttonFirstActivity = findViewById(R.id.button_first_activity);
-        buttonFirstActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(this, FirstActivity.class);
-            startActivity(intent);
-        });
+        Map<Integer, Class<?>> activitiesMap = new HashMap<>();
+        activitiesMap.put(R.id.button_first_activity, FirstActivity.class);
+        activitiesMap.put(R.id.button_second_activity, SecondActivity.class);
+        activitiesMap.put(R.id.button_third_activity, ThirdActivity.class);
+        activitiesMap.put(R.id.button_fourth_activity, FourthActivity.class);
+        activitiesMap.put(R.id.button_fifth_activity, FifthActivity.class);
 
-        Button buttonSecondActivity = findViewById(R.id.button_second_activity);
-        buttonSecondActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SecondActivity.class);
-            startActivity(intent);
-        });
+        for (Map.Entry<Integer, Class<?>> entry : activitiesMap.entrySet()){
+            Integer id = entry.getKey();
+            Class<?> cls = entry.getValue();
 
-        Button buttonThirdActivity = findViewById(R.id.button_third_activity);
-        buttonThirdActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ThirdActivity.class);
-            startActivity(intent);
-        });
-
-        Button buttonFourthActivity = findViewById(R.id.button_fourth_activity);
-        buttonFourthActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(this, FourthActivity.class);
-            startActivity(intent);
-        });
-
-        Button buttonFifthActivity = findViewById(R.id.button_fifth_activity);
-        buttonFifthActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(this, FifthActivity.class);
-            startActivity(intent);
-        });
+            Button button = findViewById(id);
+            button.setOnClickListener(v -> {
+                Intent intent = new Intent(this, cls);
+                startActivity(intent);
+            });
+        }
     }
 }
