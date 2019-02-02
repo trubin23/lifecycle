@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import ru.trubin23.lifecycle.fifth_activity.FifthActivity;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        Map<Integer, Class<?>> activitiesMap = new HashMap<>();
+        Map<Integer, Class<?>> activitiesMap = new LinkedHashMap<>();
         activitiesMap.put(R.id.button_first_activity, FirstActivity.class);
         activitiesMap.put(R.id.button_second_activity, SecondActivity.class);
         activitiesMap.put(R.id.button_third_activity, ThirdActivity.class);
