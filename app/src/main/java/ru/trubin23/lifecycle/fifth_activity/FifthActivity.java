@@ -30,7 +30,7 @@ public class FifthActivity extends AppCompatActivity {
             if (messengerFragment == null) {
                 messengerFragment = MessengerFragment.newInstance(fragmentIndex);
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.first_frame_layout, messengerFragment);
+                transaction.add(fragmentId, messengerFragment);
                 transaction.commit();
             }
         }
