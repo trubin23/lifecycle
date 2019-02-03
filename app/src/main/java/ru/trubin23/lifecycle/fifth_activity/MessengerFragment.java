@@ -42,10 +42,20 @@ public class MessengerFragment extends Fragment {
         TextView textView = root.findViewById(R.id.label_id);
         textView.setText("Fragment id: " + String.valueOf(id));
 
-        EditText editText = root.findViewById(R.id.message);
+        EditText messageView = root.findViewById(R.id.message);
+
+        EditText recipientIdView = root.findViewById(R.id.recipient_id);
 
         Button button = root.findViewById(R.id.send_message_button);
-        button.setOnClickListener(v -> mSharedViewModel.send(id, editText.getText().toString()));
+        button.setOnClickListener(v -> {
+            int recipientId = 0;
+            try {
+                recipientId = Integer.parseInt(recipientIdView.getText().toString());
+            } catch (NumberFormatException ignored) {
+            }
+
+            mSharedViewModel.send(recipientId, messageView.getText().toString());
+        });
 
         mReceivedMessageView = root.findViewById(R.id.received_message);
 
